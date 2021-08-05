@@ -1,3 +1,17 @@
+/**
+ * 날짜 타입 사용시 LocalDate, LocalDateTime 을 사용하는데, DB 저장시 제대로 전환이 안되는 이유가 있어서,
+ * SpringDateJpa 의 코어 모듈인 Hibernate core 5.2.10 부터는 해결되어 이 부분을 교체하는 수정을 함
+ * => buildscript 추가
+ */
+
+buildscript {
+	ext['hibernate.version'] = '5.2.11.Final'
+
+	dependencies {
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.5.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -22,7 +36,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+    implementation 'junit:junit:4.13.1'
+    compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
