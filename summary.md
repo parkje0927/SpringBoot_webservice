@@ -60,3 +60,7 @@ Example.builder()
 - 이는 @AllArgsConstructor 로 해결 가능하다!
 - 생성자를 직접 안쓰고 Lombok 어노테이션을 사용한 이유는,
   + 해당 클래스의 의존성 관계가 변경될때마다 생성자 코드를 계속해서 수정하는 번거로움을 해결하기 위함
+
+## controller annotation 관련
+- Spring 4.3 부터는 @RequestMapping 을 대체할 수 있는 여러 매핑 어노테이션이 추가 되었다. 
+- @GetMapping 은 이전으로 보면 @RequestMapping(value = "/", method = RequestMethod.GET) 과 동일
