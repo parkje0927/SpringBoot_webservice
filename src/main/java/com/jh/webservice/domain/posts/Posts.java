@@ -1,5 +1,6 @@
 package com.jh.webservice.domain.posts;
 
+import com.jh.webservice.domain.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id @GeneratedValue
     private Long id;
