@@ -1,6 +1,7 @@
 package com.jh.webservice.web;
 
 import com.jh.webservice.domain.posts.PostsRepository;
+import com.jh.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,9 +14,11 @@ public class WebRestController {
 
     /**
      * @AllArgsConstructor 를 통해 생성자 생성 -> Bean 주입
+     *
+     * postsRepository.save(dto.toEntity()) -> postsService.save(dto) 로 교체
      */
 
-    private PostsRepository postsRepository;
+    private PostsService postsService;
 
     @GetMapping("/hello")
     public String hello() {
@@ -23,7 +26,7 @@ public class WebRestController {
     }
 
     @PostMapping("/posts")
-    public void savePosts(@RequestBody PostsSaveRequestDto dto) {
-        postsRepository.save(dto.toEntity());
+    public Long savePosts(@RequestBody PostsSaveRequestDto dto) {
+        return postsService.save(dto);
     }
 }
