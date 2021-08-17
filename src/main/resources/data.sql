@@ -1,4 +1,4 @@
-drop table if exists posts;
+drop table if exists posts; 
 --
 -- create table posts(
 --     id bigint primary key auto_increment,
