@@ -1,4 +1,4 @@
-package com.jh.webservice.web;
+package com.jh.webservice.dto;
 
 import com.jh.webservice.domain.posts.Posts;
 import lombok.Builder;

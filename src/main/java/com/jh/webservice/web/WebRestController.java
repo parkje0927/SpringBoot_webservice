@@ -1,6 +1,6 @@
 package com.jh.webservice.web;
 
-import com.jh.webservice.domain.posts.PostsRepository;
+import com.jh.webservice.dto.PostsSaveRequestDto;
 import com.jh.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

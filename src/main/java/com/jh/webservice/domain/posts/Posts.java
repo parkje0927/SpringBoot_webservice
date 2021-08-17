@@ -3,10 +3,7 @@ package com.jh.webservice.domain.posts;
 import com.jh.webservice.domain.BaseTimeEntity;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -30,6 +27,4 @@ public class Posts extends BaseTimeEntity {
         this.content = content;
         this.author = author;
     }
-
-
 }

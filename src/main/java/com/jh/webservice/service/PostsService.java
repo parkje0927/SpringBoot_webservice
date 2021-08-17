@@ -1,11 +1,14 @@
 package com.jh.webservice.service;
 
 import com.jh.webservice.domain.posts.PostsRepository;
-import com.jh.webservice.web.PostsSaveRequestDto;
+import com.jh.webservice.dto.PostsMainResponseDto;
+import com.jh.webservice.dto.PostsSaveRequestDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -28,5 +31,16 @@ public class PostsService {
     @Transactional
     public Long save(PostsSaveRequestDto dto) {
         return postsRepository.save(dto.toEntity()).getId();
+    }
+
+    /**
+     * readOnly = true
+     * => 조회 기능만 남겨두어 조회 속도가 개선되기 때문에 특별히 등록/수정/삭제 기능이 없는 메소드에선 사용 추천함.
+     */
+    @Transactional(readOnly = true)
+    public List<PostsMainResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc()
+                .map(PostsMainResponseDto::new) //posts -> new PostsMainResponseDto(posts)
+                .collect(Collectors.toList());
     }
 }

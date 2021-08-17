@@ -1,7 +1,9 @@
 package com.jh.webservice.web;
 
+import com.jh.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -13,8 +15,12 @@ public class WebController {
      * controller 에서 문자열을 반환할 때 앞의 path 와 뒤의 파일 확장자는 자동으로 지정된다.
      * 즉, "main" 을 반환하면 src/main/resources/templates/main.hbs 로 전환되어 View Resolver 가 처리하게 된다.
      */
+
+    private PostsService postsService;
+
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+        model.addAttribute("posts", postsService.findAllDesc());
         return "main";
     }
 }

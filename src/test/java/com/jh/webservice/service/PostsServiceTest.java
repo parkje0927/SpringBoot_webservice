@@ -2,8 +2,7 @@ package com.jh.webservice.service;
 
 import com.jh.webservice.domain.posts.Posts;
 import com.jh.webservice.domain.posts.PostsRepository;
-import com.jh.webservice.web.PostsSaveRequestDto;
-import org.assertj.core.api.Assertions;
+import com.jh.webservice.dto.PostsSaveRequestDto;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
