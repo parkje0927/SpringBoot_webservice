@@ -1,0 +1,13 @@
+# Test
+spring:
+  profiles:
+    active: local # 기본 환경 선택
+
+# local
+---
+spring:
+  profiles:
+    active: local
+  jpa:
+    show-sql: true
+    
