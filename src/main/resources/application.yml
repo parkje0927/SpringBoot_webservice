@@ -8,6 +8,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        dialect: org.hibernate.dialect.H2Dialect
 
 # local 환경
 --- # --- : 이를 기준으로 상단은 공통 영역이며 하단이 각 profile 의 설정 영역이다.
