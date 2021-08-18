@@ -10,4 +10,3 @@ spring:
     active: local
   jpa:
     show-sql: true
-    
