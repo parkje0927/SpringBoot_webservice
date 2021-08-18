@@ -5,8 +5,9 @@ spring:
     active: local # 어플리케이션 실행시 파라미터로 넘어온 게 없으면 active 값을 보게 된다.
 
   jpa:
-    show-sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 # local 환경
 --- # --- : 이를 기준으로 상단은 공통 영역이며 하단이 각 profile 의 설정 영역이다.
