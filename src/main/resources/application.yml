@@ -24,10 +24,10 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 #    database-platform: org.hibernate.dialect.H2Dialect
 #    defer-datasource-initialization: true # SpringBoot 2.5 버전부터는 스크립트 기반 초기화 동작을 위해 이 옵션을 추가해야한다.
-    generate-ddl: true
+
   h2:
     console:
       enabled: true
