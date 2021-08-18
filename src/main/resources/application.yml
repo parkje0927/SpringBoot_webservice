@@ -14,19 +14,20 @@ spring:
 spring:
   profiles:
     active: local
-  datasource:
+#  datasource:
 #    url: jdbc:h2:mem:testdb
 #    driver-class-name: org.h2.Driver
 #    username: sa
 #    password:
-    data:
-      classpath: data.sql # 시작할 때 실행시킬 script / 수동 데이터 입력 과정을 제외하기 위한 설정 => 즉 이전에 저장해놓은 데이터 초기화 방지
+#    data:
+#      classpath: data.sql # 시작할 때 실행시킬 script / 수동 데이터 입력 과정을 제외하기 위한 설정 => 즉 이전에 저장해놓은 데이터 초기화 방지
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
 #    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true # SpringBoot 2.5 버전부터는 스크립트 기반 초기화 동작을 위해 이 옵션을 추가해야한다.
+#    defer-datasource-initialization: true # SpringBoot 2.5 버전부터는 스크립트 기반 초기화 동작을 위해 이 옵션을 추가해야한다.
+    generate-ddl: true
   h2:
     console:
       enabled: true
