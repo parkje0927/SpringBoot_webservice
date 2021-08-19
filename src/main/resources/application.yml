@@ -1,4 +1,10 @@
 
+# 공통 영역 설정값을 넣는 것은 주의가 필요하다.
+# 만약 공통 영역에 jpa.hibernate.ddl-auto:create-drop 이 있고, 운영 profile 에 해당 설정값이 없다면,
+# 운영환경에서 배포시 모든 테이블이 drop -> create 이 된다...
+# 이 때문에 datasource, table 등과 같은 옵션들은 공통영역에 두지 않고 각 profile 마다 별도로 두는 것을 추천한다.
+
+
 # 공통 영역 / 기본 환경 선택
 spring:
   profiles:
@@ -7,37 +13,29 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-#        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.H2Dialect
 
 # local 환경
---- # --- : 이를 기준으로 상단은 공통 영역이며 하단이 각 profile 의 설정 영역이다.
+--- # 이를 기준으로 상단은 공통 영역이며 하단이 각 profile 의 설정 영역이다.
 spring:
   profiles:
     active: local
-#  datasource:
-#    url: jdbc:h2:mem:testdb
-#    driver-class-name: org.h2.Driver
-#    username: sa
-#    password:
-#    data:
-#      classpath: data.sql # 시작할 때 실행시킬 script / 수동 데이터 입력 과정을 제외하기 위한 설정 => 즉 이전에 저장해놓은 데이터 초기화 방지
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    data:
+      classpath: data.sql # 시작할 때 실행시킬 script / 수동 데이터 입력 과정을 제외하기 위한 설정 => 즉 이전에 저장해놓은 데이터 초기화 방지
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    defer-datasource-initialization: true # SpringBoot 2.5 버전부터는 스크립트 기반 초기화 동작을 위해 이 옵션을 추가해야한다.
-
+    defer-datasource-initialization: true # SpringBoot 2.5 버전부터는 스크립트 기반 초기화 동작을 위해 이 옵션을 추가해야한다.
   h2:
     console:
       enabled: true
-#      path: /h2-console
+      path: /h2-console
 
-# 공통 영역 설정값을 넣는 것은 주의가 필요하다.
-# 만약 공통 영역에 jpa.hibernate.ddl-auto:create-drop 이 있고,
-# 운영 profile 에 해당 설정값이 없다면,
-# 운영환경에서 배포시 모든 테이블이 drop -> create 이 된다...
-# 이 때문에 datasource, table 등과 같은 옵션들은 공통영역에 두지 않고 각 profile 마다 별도로 두는 것을 추천한다.
 
 

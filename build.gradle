@@ -41,10 +41,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'junit:junit:4.13.1'
+	implementation 'com.h2database:h2'
+	implementation 'org.mariadb.jdbc:mariadb-java-client'
+
     compileOnly 'org.projectlombok:lombok'
 	compileOnly 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.2'
-	compileOnly "org.mariadb.jdbc:mariadb-java-client"
-	runtimeOnly 'com.h2database:h2'
+
+//	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
