@@ -64,3 +64,4 @@ Example.builder()
 ## controller annotation 관련
 - Spring 4.3 부터는 @RequestMapping 을 대체할 수 있는 여러 매핑 어노테이션이 추가 되었다. 
 - @GetMapping 은 이전으로 보면 @RequestMapping(value = "/", method = RequestMethod.GET) 과 동일
+
